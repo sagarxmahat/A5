@@ -1,0 +1,64 @@
+<!-- I, Sagar Mahat, 000932957, certify that I have created this work on my own and have not allowed anyone to copy from it. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP 10259 Assignment 5</title>
+    <!-- Link to external CSS stylesheet for styling the page -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <!-- Main container for the content -->
+    <div class="container">
+        <!-- Main heading of the page -->
+        <h1>AJAX Assignment #000932957</h1>
+        
+        <!-- Container for images -->
+        <div class="image-container">
+            <!-- Image elements with default source -->
+            <img id="image1" src="images/mario1.jpg" alt="Default Image 1">
+            <img id="image2" src="images/starwars2.jpg" alt="Default Image 2">
+            <img id="image3" src="images/mario3.jpeg" alt="Default Image 3">
+        </div>
+        
+        <!-- Input field for user to enter choices -->
+        <input type="text" id="choiceInput" placeholder="Enter 'mario' or 'starwars'">
+        
+        <!-- Container for buttons -->
+        <div class="button-container">
+            <!-- Buttons for user interactions -->
+            <button id="firstBtn">First</button>
+            <button id="secondBtn">Second</button>
+            <button id="thirdBtn">Third</button>
+        </div>
+        
+        <!-- Div element for dynamic content -->
+        <div id="content"></div>
+        
+        <!-- Container for dynamic table -->
+        <div id="tableContainer">
+            <!-- Table for displaying character data -->
+            <table id="dynamicTable" class="character-table">
+                <thead>
+                    <!-- Table header with column titles -->
+                    <tr>
+                        <th>Character</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table body where data will be dynamically added -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Div element for copyright or other footer content -->
+        <div id="copyright"></div>
+    </div>
+    
+    <!-- Link to external JavaScript file for functionality -->
+    <script src="script.js"></script>
+</body>
+</html>

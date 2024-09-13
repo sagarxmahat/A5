@@ -1,0 +1,151 @@
+// I, Sagar Mahat, 000932957, certify that I have created this work on my own and have not allowed anyone to copy from it.
+
+// Event listener for the "First" button
+document.getElementById('firstBtn').addEventListener('click', () => {
+    // Fetch data from the server
+    fetch('https://csunix.mohawkcollege.ca/~adams/10259/a6_responder.php')
+        .then(response => response.text()) // Get response as text
+        .then(data => {
+            // Update the content div with fetched data
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = `<h1>${data} - YourStudentNumber</h1>`;
+        })
+        .catch(error => console.error('Error:', error)); // Handle errors
+});
+
+// Event listener for the "Second" button
+document.getElementById('secondBtn').addEventListener('click', () => {
+    // Get user choice and validate
+    const choice = document.getElementById('choiceInput').value.toLowerCase();
+    if (choice !== 'mario' && choice !== 'starwars') {
+        alert("Please enter 'mario' or 'starwars'");
+        return;
+    }
+
+    // Update images and table based on choice
+    changeImages(choice);
+    updateTable(choice);
+
+    // Fetch data based on choice
+    fetch(`https://csunix.mohawkcollege.ca/~adams/10259/a6_responder.php?choice=${choice}`)
+        .then(response => response.json()) // Get response as JSON
+        .then(data => {
+            // Update content div with fetched data
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '';
+
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.style.width = `${100 / data.length}%`;
+                div.innerHTML = `
+                    <h2>${item.series}</h2>
+                    <img src="${item.url}" alt="${item.name}">
+                    <p>${item.name}</p>
+                `;
+                contentDiv.appendChild(div);
+            });
+        })
+        .catch(error => console.error('Error:', error)); // Handle errors
+});
+
+// Event listener for the "Third" button
+document.getElementById('thirdBtn').addEventListener('click', () => {
+    // Get user choice and validate
+    const choice = document.getElementById('choiceInput').value.toLowerCase();
+    if (choice !== 'mario' && choice !== 'starwars') {
+        alert("Please enter 'mario' or 'starwars'");
+        return;
+    }
+
+    // Update images and table based on choice
+    changeImages(choice);
+    updateTable(choice);
+
+    // Post data based on choice
+    fetch('https://csunix.mohawkcollege.ca/~adams/10259/a6_responder.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `choice=${choice}`
+    })
+        .then(response => response.json()) // Get response as JSON
+        .then(data => {
+            // Update the table with fetched data
+            const tableContainer = document.getElementById('tableContainer');
+            const tableBody = document.getElementById('dynamicTable').querySelector('tbody');
+            tableBody.innerHTML = ''; // Clear the table body
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                    const cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error:', error)); // Handle errors
+});
+
+// Function to change images based on user choice
+function changeImages(choice) {
+    const images = {
+        mario: [
+            'images/mario1.jpg',
+            'images/mario2.jpeg',
+            'images/mario3.jpeg'
+        ],
+        starwars: [
+            'images/starwars1.jpg',
+            'images/starwars2.jpg',
+            'images/starwars3.jpeg'
+        ]
+    };
+
+    const selectedImages = images[choice];
+
+    document.getElementById('image1').src = selectedImages[0];
+    document.getElementById('image2').src = selectedImages[1];
+    document.getElementById('image3').src = selectedImages[2];
+}
+
+// Function to update the table and copyright based on user choice
+function updateTable(choice) {
+    const marioData = [
+        { character: "Mario", role: "Hero" },
+        { character: "Luigi", role: "Hero" },
+        { character: "Peach", role: "Princess" },
+        { character: "Bowser", role: "Villain" }
+    ];
+
+    const starwarsData = [
+        { character: "Luke Skywalker", role: "Hero" },
+        { character: "Darth Vader", role: "Villain" },
+        { character: "Leia Organa", role: "Princess" },
+        { character: "Han Solo", role: "Hero" }
+    ];
+
+    const data = choice === 'mario' ? marioData : starwarsData;
+
+    const tableBody = document.querySelector('#dynamicTable tbody');
+    tableBody.innerHTML = ''; // Clear the table body
+
+    data.forEach(item => {
+        const row = document.createElement('tr');
+        Object.values(item).forEach(value => {
+            const cell = document.createElement('td');
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+        tableBody.appendChild(row);
+    });
+
+    const copyright = document.getElementById('copyright');
+    if (choice === 'mario') {
+        copyright.innerHTML = 'Game trademarks and copyrights are properties of their respective owners. Nintendo properties are trademarks of Nintendo. © 2019 Nintendo.';
+    } else if (choice === 'starwars') {
+        copyright.innerHTML = 'Star Wars © & TM 2022 Lucasfilm Ltd. All rights reserved. Visual material © 2022 Electronic Arts Inc.';
+    }
+}

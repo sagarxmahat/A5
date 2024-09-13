@@ -1,0 +1,91 @@
+/* I, Sagar Mahat, 000932957, certify that I have created this work on my own and have not allowed anyone to copy from it. */
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif; /* Sets the font for the entire page */
+    display: flex; /* Uses Flexbox for layout */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Removes default margin */
+    background-color: #87ceeb; /* Sky blue background */
+}
+
+/* Container styling */
+.container {
+    text-align: center; /* Centers text inside the container */
+    width: 80%; /* Sets width of container */
+    background-color: #fff; /* White background for the container */
+    padding: 20px; /* Adds padding inside the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds shadow around the container */
+}
+
+/* Styling for main heading */
+h1 {
+    margin-bottom: 20px; /* Adds space below the heading */
+}
+
+/* Image container styling */
+.image-container {
+    display: flex; /* Uses Flexbox for image layout */
+    justify-content: center; /* Centers images horizontally */
+    margin-bottom: 20px; /* Adds space below the image container */
+}
+
+/* Styling for images inside the image container */
+.image-container img {
+    width: 100px; /* Sets width of images */
+    height: 100px; /* Sets height of images */
+    margin: 0 10px; /* Adds space between images */
+}
+
+/* Button container styling */
+.button-container {
+    margin-bottom: 20px; /* Adds space below the button container */
+}
+
+/* Styling for buttons */
+button {
+    margin: 5px; /* Adds space around buttons */
+    padding: 10px 20px; /* Adds padding inside buttons */
+}
+
+/* Styling for content, table container, and copyright sections */
+#content, #tableContainer, #copyright {
+    margin-top: 20px; /* Adds space above these sections */
+}
+
+/* Styling for secondary headings */
+h2 {
+    margin: 0; /* Removes default margin */
+}
+
+/* General image styling */
+img {
+    max-width: 100%; /* Ensures images are responsive */
+    height: auto; /* Maintains aspect ratio */
+}
+
+/* General styling for div elements */
+div {
+    margin-bottom: 20px; /* Adds space below divs */
+}
+
+/* Styling for the character table */
+.character-table {
+    width: 100%; /* Full width of table */
+    border-collapse: collapse; /* Collapses table borders */
+    margin-bottom: 20px; /* Adds space below the table */
+}
+
+/* Styling for table headers and cells */
+.character-table th, .character-table td {
+    border: 1px solid #ddd; /* Light gray border for table cells */
+    padding: 8px; /* Adds padding inside cells */
+}
+
+/* Styling for table headers */
+.character-table th {
+    background-color: #f2f2f2; /* Light gray background for table headers */
+    text-align: left; /* Aligns text to the left in headers */
+}

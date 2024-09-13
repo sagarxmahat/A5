@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.container {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.character-image {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.character-image:hover {
+    transform: scale(1.1);
+}
+
+button, input[type="radio"] {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover, input[type="radio"]:hover {
+    background-color: #45a049;
+}
+
+input[type="radio"] {
+    display: inline;
+    margin: 0 10px;
+}
+
+#result, #content, #content2 {
+    margin-top: 20px;
+}
+
+div h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+div img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+div p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+div table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+div th, div td {
+    padding: 15px;
+    text-align: left;
+}
+
+div th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+div tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+footer {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
